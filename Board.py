@@ -5,6 +5,8 @@ import json
 import pprint
 import sys
 
+import variables
+
 
 def board():
     url = 'http://localhost:' + settings.port + '/kabusapi/board/' + settings.symbol + '@1'
@@ -17,17 +19,21 @@ def board():
     try:
         with urllib.request.urlopen(req) as res:
             content = json.loads(res.read())
-            pre_close = content["PreviousClose"]
-            print("PreviousClose", end=":")
-            print(pre_close, end=" ")
-            high_price = content["HighPrice"]
-            print("HighPrice", end=":")
-            print(high_price)
+            variables.curPrice = content["CurrentPrice"]
+            print("CurrentPrice", end=":")
+            print(variables.curPrice, end=" ")
 
-            # 最高値と前日終値の比較
-            if high_price - pre_close >= 200:
-                # 閾値以上上がってたら取引しない
-                sys.exit()
+            variables.preClose = content["PreviousClose"]
+            print("PreviousClose", end=":")
+            print(variables.preClose, end=" ")
+
+            variables.highPrice = content["HighPrice"]
+            print("HighPrice", end=":")
+            print(variables.highPrice, end=" ")
+
+            variables.lowPrice = content["LowPrice"]
+            print("LowPrice", end=":")
+            print(variables.lowPrice)
 
     except urllib.error.HTTPError as e:
         print(e)
