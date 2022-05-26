@@ -25,9 +25,9 @@ def board():
             print(high_price)
 
             # 最高値と前日終値の比較
-            # if high_price - pre_close >= 200:
+            if high_price - pre_close >= 200:
                 # 閾値以上上がってたら取引しない
-                # sys.exit()
+                sys.exit()
 
     except urllib.error.HTTPError as e:
         print(e)
