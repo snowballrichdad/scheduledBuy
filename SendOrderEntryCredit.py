@@ -19,7 +19,7 @@ def send_order_entry():
            'MarginTradeType': 1,
            'DelivType': 0,
            'AccountType': 4,
-           'Qty': 1,
+           'Qty': settings.qty,
            'ClosePositionOrder': 0,
            'Price': variables.curPrice - 1000.0,
            'ExpireDay': 0,

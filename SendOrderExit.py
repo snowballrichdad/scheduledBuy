@@ -19,7 +19,7 @@ def send_order_exit():
            'DelivType': 0,
            'FundType': '  ',
            'AccountType': 4,
-           'Qty': 1,
+           'Qty': settings.qty,
            'FrontOrderType': 30,
            'Price': 0,
            'ExpireDay': 0,

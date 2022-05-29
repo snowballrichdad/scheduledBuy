@@ -18,7 +18,7 @@ def send_order_exit_market():
            'MarginTradeType': 1,
            'DelivType': 2,
            'AccountType': 4,
-           'Qty': 1,
+           'Qty': settings.qty,
            'ClosePositionOrder': 0,
            'Price': 0,
            'ExpireDay': 0,

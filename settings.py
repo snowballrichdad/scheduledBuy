@@ -10,6 +10,7 @@ token = f.read()
 f.close()
 
 symbol = "1570"
+qty = 100
 
 now_time = dt.now()
 
