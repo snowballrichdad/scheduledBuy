@@ -19,7 +19,7 @@ def send_order_entry():
            'DelivType': 2,
            'FundType': 'AA',
            'AccountType': 4,
-           'Qty': settings.qty,
+           'Qty': settings.qty2,
            'FrontOrderType': 10,
            'Price': 0,
            'ExpireDay': 0}

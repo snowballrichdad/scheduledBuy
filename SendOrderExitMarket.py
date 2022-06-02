@@ -18,7 +18,7 @@ def send_order_exit_market():
            'DelivType': 0,
            'FundType': '  ',
            'AccountType': 4,
-           'Qty': settings.qty,
+           'Qty': settings.qty2,
            'FrontOrderType': 10,
            'Price': 0,
            'ExpireDay': 0}

@@ -11,6 +11,7 @@ f.close()
 
 symbol = "1570"
 qty = 100
+qty2 = 1
 
 now_time = dt.now()
 
