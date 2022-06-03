@@ -10,16 +10,12 @@ token = f.read()
 f.close()
 
 symbol = "1570"
-qty = 50
-qty2 = 1
+qty = 1
 
 now_time = dt.now()
 
-entry_time = now_time.replace(hour=10, minute=0)
-exit_time = now_time.replace(hour=11, minute=20)
-
-entry_time2 = now_time.replace(hour=10, minute=15)
-exit_time2 = now_time.replace(hour=14, minute=50)
+entry_time = now_time.replace(hour=10, minute=15)
+exit_time = now_time.replace(hour=14, minute=50)
 
 now_time = dt.now()
 
