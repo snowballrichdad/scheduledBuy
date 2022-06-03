@@ -11,15 +11,13 @@ import SendOrderExitCredit
 import CanselOrder
 import SendOrderExitMarket
 import SendOrderExitMarketCredit
+import settings
 import variables
 
-now_time = dt.now()
-entry_time = now_time.replace(hour=10, minute=8)
-exit_time = now_time.replace(hour=11, minute=20)
 
 while True:
     now_time = dt.now()
-    if now_time > entry_time:
+    if now_time > settings.entry_time:
         break
     time.sleep(10)
 
@@ -46,7 +44,7 @@ if variables.highPrice - variables.preClose >= 300:
 
     while True:
         now_time = dt.now()
-        if now_time > exit_time:
+        if now_time > settings.exit_time:
             break
         time.sleep(10)
 
@@ -63,6 +61,13 @@ if variables.highPrice - variables.preClose >= 300:
     SendOrderExitMarketCredit.send_order_exit_market()
 
 else:
+
+    while True:
+        now_time = dt.now()
+        if now_time > settings.entry_time2:
+            break
+        time.sleep(10)
+
     SendOrderEntry.send_order_entry()
 
     while True:
@@ -74,9 +79,11 @@ else:
     # 逆指値売り注文
     SendOrderExit.send_order_exit()
 
-    # 引けまでsleep
-    for i in range(280):
-        time.sleep(60)
+    while True:
+        now_time = dt.now()
+        if now_time > settings.exit_time2:
+            break
+        time.sleep(10)
 
     # 逆指値売り注文キャンセル
     CanselOrder.cancel_order()
