@@ -40,5 +40,7 @@ def cancel_order():
         pprint.pprint(content)
     except Exception as e:
         print(e)
+        import traceback
+        traceback.print_exc()
 
     sys.exit()

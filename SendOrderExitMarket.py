@@ -14,14 +14,15 @@ def send_order_exit_market():
            'Exchange': 1,
            'SecurityType': 1,
            'Side': 1,
-           'CashMargin': 1,
-           'DelivType': 0,
-           'FundType': '  ',
+           'CashMargin': 3,
+           'MarginTradeType': 1,
+           'DelivType': 2,
            'AccountType': 4,
            'Qty': settings.qty,
-           'FrontOrderType': 10,
+           'ClosePositionOrder': 0,
            'Price': 0,
-           'ExpireDay': 0}
+           'ExpireDay': 0,
+           'FrontOrderType': 10}
     json_data = json.dumps(obj).encode('utf-8')
 
     url = 'http://localhost:' + settings.port + '/kabusapi/sendorder'
