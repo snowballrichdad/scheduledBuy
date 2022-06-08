@@ -16,7 +16,7 @@ def send_order_exit():
            'SecurityType': 1,
            'Side': 1,
            'CashMargin': 3,
-           'MarginTradeType': 1,
+           'MarginTradeType': 3,
            'DelivType': 2,
            'AccountType': 4,
            'Qty': settings.qty,

@@ -16,7 +16,7 @@ def send_order_entry():
            'SecurityType': 1,
            'Side': 2,
            'CashMargin': 2,
-           'MarginTradeType': 1,
+           'MarginTradeType': 3,
            'DelivType': 0,
            'AccountType': 4,
            'Qty': settings.qty,
