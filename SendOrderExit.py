@@ -27,7 +27,7 @@ def send_order_exit():
            'ReverseLimitOrder': {
                'TriggerSec': 1,
                'TriggerPrice': variables.orderPrice - 200,
-               'UnderOver': 2,
+               'UnderOver': 1,
                'AfterHitOrderType': 1,
                'AfterHitPrice': 0
            }}
