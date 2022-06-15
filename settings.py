@@ -15,7 +15,7 @@ qty = 1
 now_time = dt.now()
 
 entry_time = now_time.replace(hour=10, minute=15)
-exit_time = now_time.replace(hour=14, minute=50)
+exit_time = now_time.replace(hour=14, minute=55)
 
 now_time = dt.now()
 
