@@ -1,6 +1,7 @@
 import time
 from datetime import datetime as dt
 
+import Board
 import SendOrderEntry
 import OrderInfo
 import SendOrderExit
@@ -15,6 +16,24 @@ while True:
         break
     time.sleep(10)
 
+# 価格情報取得
+Board.board()
+
+# 最高値が前日終値を300円以上上回っているか
+if variables.highPrice - variables.preClose < 300:
+    # 上回っていなければ買いエントリ
+    variables.side = 2
+    variables.exitSide = 1
+    # 指値で必ず約定できるようにエントリ価格を現在値 + 1000円に
+    variables.entryPrice = variables.curPrice + 1000
+else:
+    # 上回っていないれば売りエントリ
+    variables.side = 1
+    variables.exitSide = 2
+    # 指値で必ず約定できるようにエントリ価格を現在値 - 1000円に
+    variables.entryPrice = variables.curPrice - 1000
+
+# エントリ
 SendOrderEntry.send_order_entry()
 
 while True:
@@ -22,6 +41,14 @@ while True:
     if OrderInfo.orders_info(variables.entryOrderID):
         break
     time.sleep(1)
+
+# 逆指値算出
+if variables.side == 2:
+    variables.triggerPrice = variables.orderPrice - 200
+    variables.underOver = 1
+else:
+    variables.triggerPrice = variables.orderPrice + 200
+    variables.underOver = 2
 
 # 逆指値売り注文
 SendOrderExit.send_order_exit()

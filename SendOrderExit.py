@@ -14,7 +14,7 @@ def send_order_exit():
            'Symbol': settings.symbol,
            'Exchange': 1,
            'SecurityType': 1,
-           'Side': 1,
+           'Side': variables.exitSide,
            'CashMargin': 3,
            'MarginTradeType': 3,
            'DelivType': 2,
@@ -27,7 +27,7 @@ def send_order_exit():
            'ReverseLimitOrder': {
                'TriggerSec': 1,
                'TriggerPrice': variables.orderPrice - 200,
-               'UnderOver': 1,
+               'UnderOver': variables.underOver,
                'AfterHitOrderType': 1,
                'AfterHitPrice': 0
            }}

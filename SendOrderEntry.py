@@ -14,14 +14,14 @@ def send_order_entry():
            'Symbol': settings.symbol,
            'Exchange': 1,
            'SecurityType': 1,
-           'Side': 2,
+           'Side': variables.side,
            'CashMargin': 2,
            'MarginTradeType': 3,
            'DelivType': 0,
            'AccountType': 4,
            'Qty': settings.qty,
-           'FrontOrderType': 10,
-           'Price': 0,
+           'FrontOrderType': 20,
+           'Price': variables.entryPrice,
            'ExpireDay': 0}
     json_data = json.dumps(obj).encode('utf-8')
 

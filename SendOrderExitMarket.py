@@ -6,6 +6,7 @@ import sys
 
 import password
 import settings
+import variables
 
 
 def send_order_exit_market():
@@ -13,7 +14,7 @@ def send_order_exit_market():
            'Symbol': settings.symbol,
            'Exchange': 1,
            'SecurityType': 1,
-           'Side': 1,
+           'Side': variables.exitSide,
            'CashMargin': 3,
            'MarginTradeType': 3,
            'DelivType': 2,
