@@ -23,10 +23,12 @@ Board.board()
 if variables.highPrice - variables.preClose < 300:
     # 上回っていなければ買いエントリ
 
-    # 最高値が前日終値を300円以上下回っているか
+    # 最安値が前日終値を300円以上下回っているか
     if variables.preClose - variables.lowPrice > 300:
-        # 建玉を増やす
-        settings.qty = 10
+        # 現在地が前日終値を200円以上下回っているか
+        if variables.preClose - variables.curPrice > 200:
+            # 建玉を増やす
+            settings.qty = 10
 
     variables.side = 2
     variables.exitSide = 1
@@ -35,8 +37,10 @@ if variables.highPrice - variables.preClose < 300:
 else:
     # 上回っていれば売りエントリ
 
-    # 建玉を増やす
-    settings.qty = 10
+    # 現在地が前日終値を200円以上上回っているか
+    if variables.curPrice - variables.preClose > 200:
+        # 建玉を増やす
+        settings.qty = 10
 
     variables.side = 1
     variables.exitSide = 2

@@ -26,7 +26,7 @@ def send_order_exit():
            'FrontOrderType': 30,
            'ReverseLimitOrder': {
                'TriggerSec': 1,
-               'TriggerPrice': variables.orderPrice - 200,
+               'TriggerPrice': variables.triggerPrice,
                'UnderOver': variables.underOver,
                'AfterHitOrderType': 1,
                'AfterHitPrice': 0
