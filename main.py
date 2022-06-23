@@ -40,7 +40,7 @@ else:
     # 現在地が前日終値を200円以上上回っているか
     if variables.curPrice - variables.preClose > 200:
         # 建玉を増やす
-        settings.qty = 10
+        settings.qty = 1
 
     variables.side = 1
     variables.exitSide = 2
@@ -58,10 +58,10 @@ while True:
 
 # 逆指値算出
 if variables.side == 2:
-    variables.triggerPrice = variables.orderPrice - 200
+    variables.triggerPrice = variables.orderPrice - 300
     variables.underOver = 1
 else:
-    variables.triggerPrice = variables.orderPrice + 200
+    variables.triggerPrice = variables.orderPrice + 300
     variables.underOver = 2
 
 # 逆指値売り注文
